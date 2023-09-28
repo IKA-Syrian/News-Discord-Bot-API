@@ -8,11 +8,15 @@ const session = require('express-session')
 const cors = require('cors')
 const Store = require('connect-mongo')(session);
 const app = express()
+
 const PORT = process.env.PORT || 3002;
+const MongoLink = process.env.MONGO_LINK
+
 const routes = require('./routes')
 
 
-mongoose.connect('mongodb+srv://golden:Ibrahim2002tk@cluster0.u86g6.mongodb.net/test', {
+
+mongoose.connect(MongoLink, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 })
